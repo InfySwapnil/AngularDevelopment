@@ -7,3 +7,13 @@ angular.module("mainApp.controllers",[ ])
 
 	}
 ])
+
+
+
+.controller('HomeCntrl',['$scope',function($scope){
+
+	//This is Homepage.
+
+
+	}
+])
