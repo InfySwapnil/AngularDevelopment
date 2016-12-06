@@ -16,4 +16,12 @@ angular.module("mainApp.controllers",[ ])
 
 
 	}
+])	
+	
+.controller('AboutCntrl',['$scope',function($scope){
+
+	//This is About Page.
+
+
+	}
 ])

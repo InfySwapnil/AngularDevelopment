@@ -17,9 +17,23 @@
 	<body ng-controller="MainCntrl">
 	
 	<div class="header"></div>
-	<div class="left-menu"></div>	<div class="right-content"></div>
+	<div class="left-menu"> 
+		<div class="menu">
+			<ul>
+				<li>	<a href="#/home">Home</a>		</li>
+				<li>	<a href="#/Personal">Personal</a>	</li>
+				<li> 	<a href="#/Financial">Financial</a>	</li>
+				<li> 	<a href="#/Health">Health</a>		</li>
+				<li>	<a href="#/about">about</a>		</li>
+			</ul>
+		</div>	
+	</div>
+
+	<div class="right-content"> 
+		<div ng-view></div> 
+	</div>
+	
 	<div class="footer"></div>
-	<!-- <div ng-view></div> -->
 		
 	</body>
 </html>

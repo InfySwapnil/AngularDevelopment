@@ -1,6 +1,55 @@
+html,body{
+
+	color: black;
+}
+
 .header, .left-menu, .right-content, .footer{border: 1px solid}
 
 .header{position: fixed; top:0px; height: 12%; width:100%;}
 
 .footer{position: fixed; bottom:0px; height: 5%; width:100%;}
 
+.left-menu {
+    width: 20%;
+    height: 80.7%;
+    position: fixed;
+    outline: 1px solid;
+    top: 13%;
+	background-color: #f1f1f1;
+}
+
+
+.right-content{
+	width: 79.3%;
+    height: 80.7%;
+    outline: 1px solid;
+    position: absolute;
+    right: 0;
+    top: 13%;
+
+}
+
+.menu > ul{
+	list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+
+.menu > ul li a{
+	   display: block;
+	   text-decoration: none;
+	   padding-top: 9px;
+	   padding-bottom: 9px;
+	   transition: padding-left 1s, color 1s;
+	   border-bottom: 1px solid black;
+	   font-weight: bold;
+	   font-size:15 px;
+}
+
+li a:hover{
+    /* background-color: #555; */
+    color: red;
+	padding-left: 48px;
+
+}
