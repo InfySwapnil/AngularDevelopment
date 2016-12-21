@@ -1,3 +1,9 @@
+body{
+
+background-color: #F0F2EB;
+padding: 2px;
+}
+
 div{
 
 	outline:0;
@@ -7,40 +13,64 @@ a{
 	color: #f0f2eb;
 }
 
-.header, .left-menu, .right-content, .footer{border: 1px solid}
+
 
 .header{
+	border:0;
 	position: fixed; 
 	top:0px; 
 	height: 12%; 
 	width:100%; 
-	background: linear-gradient(135deg, #ff6e42 22%,#f9fcf7 100%);
+	background: linear-gradient(to bottom right,#FF512F , #F09819);
+	z-index: 1;
+	border-radius: 10px;
 	/* background: #404452 none repeat scroll 0 0; */
 	
 }
 
 .footer{
+	border:0;
 	position: fixed; 
 	bottom:0px; 
 	height: 5%; 
 	width:100%;
-	background: linear-gradient(135deg, #ff6e42 22%,#f9fcf7 100%);	
+	background: linear-gradient(to top left ,#FF512F , #F09819);
+	z-index: 1;	
+	border-radius: 5px;
 	/* background: #404452 none repeat scroll 0 0; */
 	
  }
 
 .left-menu {
+	border:0;
     width: 20%;
     height: 81.5%;
     position: fixed;
     top: 12.6%;
 	background: #404452 none repeat scroll 0 0;
+	z-index: 1;	
+	border-radius: 4px;
 }
 
+/* .right-content:after {
+  content: "";
+  display: block;
+  height: 50px;
+  width: 100%; 
+}
+
+.right-content:before {
+  content: "";
+  display: block;
+  height: 6px;
+  width: 100%; 
+} */
 
 .right-content{
+	padding: 2px;
+	border:0;
 	width: 79.6%;
-    height: 81.5%;
+    height: auto;
     position: absolute;
     right: 0;
     top: 12.6%;
@@ -62,16 +92,38 @@ a{
 	   text-decoration: none;
 	   padding-top: 9px;
 	   padding-bottom: 9px;
-	   transition: padding-left .6s, color .6s, background-color .6s;
+	   transition: padding-left .2s, color .2s, background-color .2s;
 	   border-bottom: 1px solid #F0F2EB;
 	   font-weight: bold;
 	   font-size: larger;
 }
 
 li a:hover{
-    background-color: #f0f2eb;
+    background-color: #F0F2EB;
     color: #ff6e42;
 	padding-left: 48px;
 
 }
 
+
+.content{
+    padding-left: 1%;
+    padding-bottom: 4%;
+    padding-right: 1%;
+    padding-top: 1%;
+}
+
+
+.on{
+    background-color: #F0F2EB;
+    color: #ff6e42;
+	padding-left: 48px;
+}
+
+.off{
+    background-color: #404452;
+    color: #f0f2eb;
+	padding-left: 0px;
+
+
+}
