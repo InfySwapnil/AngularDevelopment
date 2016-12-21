@@ -1,7 +1,8 @@
 angular.module("mainApp.controllers",[ ])
 
 .controller('MainCntrl',['$scope',function($scope){
-
+		
+		
 
 	}
 ])
@@ -11,7 +12,7 @@ angular.module("mainApp.controllers",[ ])
 .controller('HomeCntrl',['$scope',function($scope){
 
 	//This is Homepage.
-
+	$scope.Test="This is Test";
 
 	}
 ])	
