@@ -1,6 +1,15 @@
 angular.module("mainApp.directives",[])
 
-
+.directive("navMenu", function($location){
+	return{
+		restrict: "E",
+		link: function($scope, elem, attrs, $location){
+			
+			console.log($location.url());
+	
+		}
+	}
+})
 /* .directive("digitsOnly", function(){
 
 	return{
@@ -15,8 +24,8 @@ angular.module("mainApp.directives",[])
 			});
 			
 		}
-	} */
-	
+	} 
+}) 	
 	
 	.directive("onlyDigitsTag",function(){
 	
@@ -29,9 +38,8 @@ angular.module("mainApp.directives",[])
 			template: "<input type='text' ng-model='x'>",
 			link: function($scope, element, attrs, controller){
 				console.log($scope.x);
-		
-				
+			
 			}
 		}
 	
-	})
+	}) */
