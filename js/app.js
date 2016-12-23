@@ -5,12 +5,7 @@ var mainApp=angular.module("mainApp",["mainApp.controllers",
 
 mainApp.config(['$routeProvider',function($routeProvider){
 $routeProvider
-    .when("/",
-    {
-      controller: "HomeCntrl",
-      templateUrl: "/Home.html" 
-    })
-	
+    	
 	.when("/home",
     {
       controller: "HomeCntrl",
@@ -22,8 +17,29 @@ $routeProvider
       controller: "AboutCntrl",
       templateUrl: "/about.html" 
     })
-  
-    .otherwise({ redirectTo: "/" });
+
+	.when("/personal",
+    {
+      controller: "AboutCntrl",
+      templateUrl: "/personal.htm" 
+    })
+
+	.when("/health",
+    {
+      controller: "AboutCntrl",
+      templateUrl: "/health.htm" 
+    })
+
+	
+	.when("/financial",
+    {
+      controller: "AboutCntrl",
+      templateUrl: "/financial.htm" 
+    })
+
+	
+	
+    .otherwise({ redirectTo: "/home" });
 
 }
 ]);

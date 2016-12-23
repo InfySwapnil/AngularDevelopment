@@ -10,7 +10,7 @@ angular.module("mainApp.directives",[])
 			angular.element(links[0]).addClass("Active-Link");
 			
 			rootScope.$on("$routeChangeSuccess",function(){
-			
+				console.log("changed");
 				angular.forEach(links,function(link){
 					link=angular.element(link);
 					
@@ -22,7 +22,7 @@ angular.module("mainApp.directives",[])
 			
 			})
 			
-			links.on("click",function(e){
+			/* links.on("click",function(e){
 				var activeLink=angular.element(e.target);
 				angular.forEach(links,function(link){
 					link=angular.element(link);
@@ -34,7 +34,7 @@ angular.module("mainApp.directives",[])
 				activeLink.addClass("Active-Link");
 				
 				
-			});
+			}); */
 			
 			
 		}
