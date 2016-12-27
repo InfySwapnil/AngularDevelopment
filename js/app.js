@@ -1,5 +1,6 @@
 var mainApp=angular.module("mainApp",["mainApp.controllers",
 "mainApp.directives",
+"ui.bootstrap",
 "ngRoute"
 ]);
 
