@@ -1,46 +1,64 @@
-var mainApp=angular.module("mainApp",["mainApp.controllers",
-"mainApp.directives",
-"ui.bootstrap",
-"ngRoute"
-]);
+  var mainApp=angular.module("mainApp",["mainApp.controllers",
+    "mainApp.directives",
+    "ui.bootstrap",
+    "ngRoute"
+    ]);
 
-mainApp.config(['$routeProvider',function($routeProvider){
-$routeProvider
-    	
-	.when("/home",
+  mainApp.factory("addRemovetrans",function(){
+    return{
+
+      addTask: function()
+      { var newTaskid=0; 
+        console.log("Taskid is"+newTaskid); 
+      },
+     
+      removeTask:function(taskid)
+      {
+        console.log("Taskid is"+taskid);
+      }
+
+    }
+  });
+
+
+
+  mainApp.config(['$routeProvider',function($routeProvider){
+    $routeProvider
+
+    .when("/home",
     {
       controller: "HomeCntrl",
       templateUrl: "/Home.html" 
     })
-	
-	.when("/about",
+
+    .when("/about",
     {
       controller: "AboutCntrl",
       templateUrl: "/about.html" 
     })
 
-	.when("/personal",
+    .when("/personal",
     {
       controller: "AboutCntrl",
       templateUrl: "/personal.htm" 
     })
 
-	.when("/health",
+    .when("/health",
     {
       controller: "AboutCntrl",
       templateUrl: "/health.htm" 
     })
 
-	
-	.when("/financial",
+
+    .when("/financial",
     {
       controller: "AboutCntrl",
       templateUrl: "/financial.htm" 
     })
 
-	
-	
+
+
     .otherwise({ redirectTo: "/home" });
 
-}
-]);
+  }
+  ]);
