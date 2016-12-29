@@ -15,6 +15,13 @@ a{
 }
 
 
+input[type="checkbox"]{
+
+margin: 0px;
+transform: scale(1.5);
+
+}
+
 .header{
 	border:0;
 	position: fixed; 
@@ -146,4 +153,22 @@ a{
 
 height: 38px;
 
+}
+
+.each-task{
+	               border: 1px solid rgba(64, 68, 82, 0.46);
+    border-radius: 4px;
+    height: 41px;
+    line-height: 38px;
+    margin-bottom: 9px;
+    padding-left: 12px;
+    padding-right: 12px;
+    box-shadow: black;
+    box-shadow: 6px 4px 13px -3px rgba(64, 68, 82, 0.58);
+}
+
+
+.task-name{
+    font-size: 19px;
+    margin-left: 28px;
 }

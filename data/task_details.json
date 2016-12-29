@@ -1,0 +1,7 @@
+{
+"details": [
+	{"id":"task1", "task": "Bring vegetables","cateogry":"Personal","CreateDate":"", "EndDate":"" },
+	{"id":"task2", "task": "Go to Gym", "cateogry":"Health","CreateDate":"", "EndDate":"" },
+	{"id":"task3", "task": "transfer 200 to yogi","cateogry":"financial", "CreateDate":"", "EndDate":"" },
+	{"id":"task4", "task": "buy bike","cateogry":"Personal", "CreateDate":"", "EndDate":"" }
+]}

@@ -4,21 +4,31 @@
     "ngRoute"
     ]);
 
-  mainApp.factory("addRemovetrans",function(){
+  mainApp.factory("addRemovetrans",function($http){
     return{
 
       addTask: function()
       { var newTaskid=0; 
         console.log("Taskid is"+newTaskid); 
       },
-     
+
       removeTask:function(taskid)
       {
         console.log("Taskid is"+taskid);
-      }
+      },
 
+      fetchDetails: function()
+      {
+      return $http({
+        method: "GET",
+        url: "data/task_details.json"  
+      })
     }
-  });
+
+
+
+  }
+});
 
 
 
