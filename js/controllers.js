@@ -11,24 +11,31 @@
 
 
 	//This controller is for home.html
-	.controller('HomeCntrl',['$scope','addRemovetrans',function($scope,addRemovetrans){
+	.controller('HomeCntrl',['$scope','addRemovetrans','$compile',function($scope,addRemovetrans,$compile){
 		
 		addRemovetrans.fetchDetails().then(function(response){
 			$scope.AllTasks = response.data.details;
-			console.log($scope.AllTasks);
+			
 		},
 		function(error){
 			console.log(error);
 
-		})
-		
+		});
 		
 
-		$scope.addTask=function(task){
+		$scope.addTask=function(task,event){
 			event.preventDefault();
-			
+			var type= event.target.text;
+			addRemovetrans.addTask(task,event,type);
 
-		}
+		/*	var node = document.createElement("Div");               
+			var textnode = document.createTextNode(task);
+			node.appendChild(textnode);
+			var parEl = angular.element( document.querySelector('#task-List'));
+			parEl.prepend(node);
+		*/	
+
+		};
 	}
 	])
 

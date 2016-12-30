@@ -17,7 +17,7 @@
   </div>
 
 
-  <div class="task-List">
+  <div class="task-List" id="task-List" dyn-div>
     <div ng-repeat="taskRow in AllTasks" id={{taskRow.id}} class="each-task">
 
     <input type="checkbox" name={{taskRow.id}} value={{taskRow.id}} /><span class="task-name">{{taskRow.task}}</span>

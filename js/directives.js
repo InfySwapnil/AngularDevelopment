@@ -10,16 +10,16 @@ angular.module("mainApp.directives",[])
 			angular.element(links[0]).addClass("Active-Link");
 			
 			rootScope.$on("$routeChangeSuccess",function(){
-				console.log("changed");
+				
 				angular.forEach(links,function(link){
 					link=angular.element(link);
 					
 					if(/\/[a-zA-Z]+/.exec(link.attr("href"))[0]!=location.$$path)
-					link.removeClass("Active-Link");
+						link.removeClass("Active-Link");
 					else
-					link.addClass("Active-Link");
+						link.addClass("Active-Link");
 				})
-			
+
 			})
 			
 			/* links.on("click",function(e){
@@ -40,6 +40,37 @@ angular.module("mainApp.directives",[])
 		}
 	}
 }])
+
+
+/*.directive("dynDiv",function(){
+
+	return{
+
+		restrict: "A",
+		link: function($scope, elem, attrs){
+			
+			var linkElem = angular.element(document.querySelectorAll(".dropdown-menu li a"));
+			console.log(linkElem);
+			
+
+			linkElem.addEventListener("click",function(){
+
+					console.log("dadd");
+
+			})
+			
+
+
+		}
+	}
+});*/
+
+
+
+
+
+
+
 /* .directive("digitsOnly", function(){
 
 	return{
