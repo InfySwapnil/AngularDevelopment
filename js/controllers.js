@@ -14,8 +14,8 @@
 	.controller('HomeCntrl',['$scope','addRemovetrans','$compile',function($scope,addRemovetrans,$compile){
 		
 		addRemovetrans.fetchDetails().then(function(response){
-			$scope.AllTasks = response.data.details;
-			
+			$scope.AllTasks = response.data.reverse();
+						
 		},
 		function(error){
 			console.log(error);

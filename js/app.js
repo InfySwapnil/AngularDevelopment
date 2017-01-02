@@ -4,13 +4,14 @@
     "ngRoute"
     ]);
 
-  mainApp.factory("addRemovetrans",function($http){
+  mainApp.factory("addRemovetrans",function($http, $filter){
     return{
 
       addTask: function(task,event,type)
       { 
 
-        
+        var CreateDate=$filter('date')(new Date(), 'dd/MM/yyyy');
+        var CreateTime=$filter('date')(new Date(), 'hh:mm:ss a');
         var parEl = angular.element( document.querySelector('#task-List'));
         var taskId=parseInt(parEl.find("input").attr("value"));
         taskId=taskId+1;        
@@ -19,12 +20,24 @@
         var  htmlElem='<div ng-repeat="taskRow in AllTasks" id="'+taskId+'" class="each-task">';
         htmlElem=htmlElem+'<input type="checkbox" name="'+taskId +'" value="'+taskId +'" />';
         htmlElem=htmlElem+'<span class="task-name">'+task+'</span></div>';
-
-
         
         parEl.prepend(htmlElem);
 
-        //myArray.unshift({number:'5', value:'Electronics'})
+        
+          $http({
+            url: 'http://localhost:3000/details',
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            data:  {"id":taskId, "task": task,"cateogry":type, "CreateDate":CreateDate+" "+CreateTime, "EndDate":CreateDate, "EndTime": "12:00:00 AM" }
+          })
+          .then(function(response) {
+            
+          }, 
+          function(response) { // optional
+            
+          });
+        
+   
       },
 
     
@@ -39,7 +52,7 @@
       {
         return $http({
           method: "GET",
-          url: "data/task_details.json"  
+          url: "http://localhost:3000/details"  
         })
       }
 
