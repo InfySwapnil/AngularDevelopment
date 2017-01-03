@@ -22,20 +22,20 @@
 
 		});
 		
-
 		$scope.addTask=function(task,event){
 			event.preventDefault();
 			var type= event.target.text;
 			addRemovetrans.addTask(task,event,type);
 
-		/*	var node = document.createElement("Div");               
-			var textnode = document.createTextNode(task);
-			node.appendChild(textnode);
-			var parEl = angular.element( document.querySelector('#task-List'));
-			parEl.prepend(node);
-		*/	
-
 		};
+
+		$scope.editTask=function(id){
+
+		var ParElem=angular.element(document.getElementById(id));
+		var	editTabElem=angular.element(document.getElementById("edit-task-"+id));
+		//editTabElem.removeClass("hide").addClass("show");
+		editTabElem.toggleClass("show");
+		}
 	}
 	])
 

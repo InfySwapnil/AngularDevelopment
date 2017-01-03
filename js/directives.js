@@ -5,7 +5,6 @@ angular.module("mainApp.directives",[])
 	return{
 		restrict: "E",
 		link: function($scope, elem, attrs){
-			
 			var links=elem.find("a");
 			angular.element(links[0]).addClass("Active-Link");
 			
@@ -21,86 +20,14 @@ angular.module("mainApp.directives",[])
 				})
 
 			})
-			
-			/* links.on("click",function(e){
-				var activeLink=angular.element(e.target);
-				angular.forEach(links,function(link){
-					link=angular.element(link);
-					if(activeLink[0].innerHTML.toString()!=link[0].innerHTML.toString()){
-						link.removeClass("Active-Link");
-					}
-				});
-				
-				activeLink.addClass("Active-Link");
-				
-				
-			}); */
-			
-			
 		}
 	}
 }])
 
 
-/*.directive("dynDiv",function(){
-
-	return{
-
-		restrict: "A",
-		link: function($scope, elem, attrs){
-			
-			var linkElem = angular.element(document.querySelectorAll(".dropdown-menu li a"));
-			console.log(linkElem);
-			
-
-			linkElem.addEventListener("click",function(){
-
-					console.log("dadd");
-
-			})
-			
-
-
-		}
-	}
-});*/
 
 
 
 
 
-
-
-/* .directive("digitsOnly", function(){
-
-	return{
-		restrict: "A",
-		link: function(scope, element, attrs){
-			element[0].addEventListener("change", function(){
-				
-				if(isNaN(element[0].value))
-				console.log("This is not a number");
-				else
-				console.log("This is number");
-			});
-			
-		}
-	} 
-}) 	
 	
-	.directive("onlyDigitsTag",function(){
-	
-		return{
-		
-			restrict: "E",
-			controller:function($scope){
-				$scope.x="New scope variable";
-			},
-			template: "<input type='text' ng-model='x'>",
-			link: function($scope, element, attrs, controller){
-				console.log($scope.x);
-			
-			}
-		}
-	
-	}) */
