@@ -20,7 +20,7 @@
   <div class="task-List" id="task-List">
     <div ng-repeat="taskRow in AllTasks" id={{taskRow.id}} class="each-task" ng-click="editTask(taskRow.id,$event)">
 
-      <input type="checkbox" name={{taskRow.id}} value={{taskRow.id}} /><span class="task-name">{{taskRow.task}}</span>
+      <input type="checkbox" name={{taskRow.id}} value={{taskRow.id}} ng-click="$event.stopPropagation()" /><span class="task-name">{{taskRow.task}}</span>
        
       <div id="edit-task-{{taskRow.id}}" class="hide" ng-click="$event.stopPropagation()">
        <hr>

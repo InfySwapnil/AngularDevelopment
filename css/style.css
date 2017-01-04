@@ -183,6 +183,8 @@ box-shadow: 6px 4px 4px -3px rgba(64, 68, 82, 0.58);
 
 }
 
+
+
 .hide{
 
 	display: none;
@@ -195,6 +197,7 @@ box-shadow: 6px 4px 4px -3px rgba(64, 68, 82, 0.58);
     padding-top: 13px;
     padding-bottom: 10px;
 }
+
 
 .task-name{
     font-size: 19px;
