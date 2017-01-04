@@ -29,12 +29,15 @@
 
 		};
 
-		$scope.editTask=function(id){
-
+		
+		$scope.editTask=function(id,event){
+		
+		console.log("Yes");	
 		var ParElem=angular.element(document.getElementById(id));
+		
 		var	editTabElem=angular.element(document.getElementById("edit-task-"+id));
-		//editTabElem.removeClass("hide").addClass("show");
-		editTabElem.toggleClass("show");
+		
+		editTabElem.addClass("show");
 		}
 	}
 	])

@@ -18,11 +18,18 @@
 
 
   <div class="task-List" id="task-List">
-    <div ng-repeat="taskRow in AllTasks" id={{taskRow.id}} class="each-task" ng-click="editTask(taskRow.id)">
+    <div ng-repeat="taskRow in AllTasks" id={{taskRow.id}} class="each-task" ng-click="editTask(taskRow.id,$event)">
 
       <input type="checkbox" name={{taskRow.id}} value={{taskRow.id}} /><span class="task-name">{{taskRow.task}}</span>
-      <br>
-      <div id="edit-task-{{taskRow.id}}" class="hide">Swapnil</div>
+       
+      <div id="edit-task-{{taskRow.id}}" class="hide" ng-click="$event.stopPropagation()">
+       <hr>
+      <label>Set Expiry DateTime :</label>
+      <input type="datetime"/>
+
+
+
+      </div>
     </div>
 
   </div>
