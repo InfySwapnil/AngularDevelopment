@@ -15,10 +15,8 @@ a{
 }
 
 hr{
-	margin: 0px;
-    border-top: 0px;
-    margin-bottom: 10px;
-    border-color: rgba(19, 1, 1, 0.19);
+
+	border-top: 1px solid rgba(19, 18, 18, 0.21);
 }
 
 input[type="checkbox"]{
@@ -170,7 +168,7 @@ height: 38px;
     padding-left: 12px;
     padding-right: 12px;
     box-shadow: 6px 4px 13px -3px rgba(64, 68, 82, 0.58);
-    overflow: auto;
+    overflow: inherit;
     height: 100%;
 }
 
@@ -196,6 +194,7 @@ box-shadow: 6px 4px 4px -3px rgba(64, 68, 82, 0.58);
 	padding-left: 57px;
     padding-top: 13px;
     padding-bottom: 10px;
+    position: relative;
 }
 
 
@@ -204,3 +203,49 @@ box-shadow: 6px 4px 4px -3px rgba(64, 68, 82, 0.58);
     margin-left: 28px;
 }
 
+
+
+ .full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+  }
+  .partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+  }
+
+  .input-group .overrrideText{
+
+  	width: 249px;
+    z-index: 0;
+  }
+
+  .input-group .overrrideBtn{
+
+  	right: -37px;
+    position: absolute;
+    top: 0px;
+    z-index: 0;
+  }
+
+  .input-group .overrridedrp{
+
+  	z-index: inherit;
+  }
+
+  .show .btn-primary{
+    position: absolute;
+    bottom: 123px;
+    left: 550px;
+    height: 70px;
+    width: 130px;
+   
+
+  }
+
+.show .btn-primary:hover{
+      background-color: #c9302c;
+    border-color: #ac2925;
+  }
