@@ -17,10 +17,10 @@
         taskId=taskId+1;        
         
 
-        var  htmlElem='<div ng-repeat="taskRow in AllTasks" id="'+taskId+'" class="each-task">';
-        htmlElem=htmlElem+'<input type="checkbox" name="'+taskId +'" value="'+taskId +'" />';
+        var  htmlElem='<div ng-repeat="taskRow in AllTasks" id="'+taskId+'" class="each-task" ng-click="editTask("'+taskId+'",$event)" >';
+        htmlElem=htmlElem+'<input type="checkbox" name="'+taskId +'" value="'+taskId +'" ng-click="$event.stopPropagation()" />';
         htmlElem=htmlElem+'<span class="task-name">'+task+'</span></div>';
-        
+        htmlElem=htmlElem+'<div id="edit-task-'+taskId+'" " class="hide" ng-click="$event.stopPropagation()">';
         parEl.prepend(htmlElem);
 
         
