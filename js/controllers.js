@@ -156,14 +156,14 @@
   $scope.addTask=function(task,event){
   	event.preventDefault();
   	var type= event.target.text;
-  	addRemovetrans.addTask(task,event,type);
+  	addRemovetrans.addTask(task,event,type,$scope);
 
   };
 
 
   $scope.editTask=function(id,event){
 
-  //	console.log("Yes");	
+  console.log("Yes");	
   	var ParElem=angular.element(document.getElementById(id));
 
   	var	editTabElem=angular.element(document.getElementById("edit-task-"+id));

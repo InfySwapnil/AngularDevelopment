@@ -4,10 +4,10 @@
     "ngRoute"
     ]);
 
-  mainApp.factory("addRemovetrans",function($http, $filter){
+  mainApp.factory("addRemovetrans",function($http, $filter, $compile){
     return{
 
-      addTask: function(task,event,type)
+      addTask: function(task,event,type,$scope)
       { 
 
         var CreateDate=$filter('date')(new Date(), 'dd/MM/yyyy');
@@ -17,10 +17,14 @@
         taskId=taskId+1;        
         
 
-        var  htmlElem='<div ng-repeat="taskRow in AllTasks" id="'+taskId+'" class="each-task" ng-click="editTask("'+taskId+'",$event)" >';
+        var  htmlElem='<div ng-repeat="taskRow in AllTasks" id="'+taskId+'" class="each-task" ng-click="editTask('+taskId+',$event)" >';
+        console.log($compile(htmlElem)($scope));
         htmlElem=htmlElem+'<input type="checkbox" name="'+taskId +'" value="'+taskId +'" ng-click="$event.stopPropagation()" />';
         htmlElem=htmlElem+'<span class="task-name">'+task+'</span></div>';
         htmlElem=htmlElem+'<div id="edit-task-'+taskId+'" " class="hide" ng-click="$event.stopPropagation()">';
+        
+        //console.log($compile(htmlElem)($scope));
+       
         parEl.prepend(htmlElem);
 
         
