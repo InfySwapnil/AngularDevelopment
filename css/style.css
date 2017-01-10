@@ -61,6 +61,7 @@ transform: scale(1.5);
 	background: #404452 none repeat scroll 0 0;
 	z-index: 1;	
 	border-radius: 4px;
+	padding-top: 75px;
 }
 
 /* .right-content:after {
@@ -145,11 +146,12 @@ transform: scale(1.5);
 }
 
 
-
 .div-add-tsk .form-control{
-	width:	520px;
-	height: 30px;
-	margin-bottom:0px;
+	width: 720px;
+    height: 39px;
+    margin-bottom: 0px;
+    display: inline-block;
+    margin: 42px 0px;
 }
 
 

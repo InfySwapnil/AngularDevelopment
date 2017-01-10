@@ -144,6 +144,16 @@
 
   //Application Logic starts 
 
+ 
+
+
+
+
+
+
+
+  
+
   addRemovetrans.fetchDetails().then(function(response){
   	$scope.AllTasks = response.data.reverse();
 
@@ -153,17 +163,52 @@
 
   });
 
+
+
+  $scope.delete=(function(){
+  	
+  	
+  	var selectedCB=[];
+  	return function(id,key){
+  		if(key){
+  			selectedCB.push(id);
+  			console.log(selectedCB);	
+  		}
+  		else{
+
+  			selectedCB.pop(id);
+  			console.log(selectedCB);
+  		}
+  	}
+  })();
+
   $scope.addTask=function(task,event){
   	event.preventDefault();
   	var type= event.target.text;
-  	addRemovetrans.addTask(task,event,type,$scope);
+  	addRemovetrans.addTask(task,event,type).then(function(response) {
+  		console.log(response);
+  		if(parseInt(response.status)==201 && response.statusText=="Created" )
+  		{
+  			console.log("record Created");
+  			addRemovetrans.fetchDetails().then(function(response){
+  				$scope.AllTasks = response.data.reverse();
+
+  			},
+  			function(error){
+  				//console.log(error);
+  			});
+  		}
+  	}, 
+  	function(response) {
+
+  	});
 
   };
 
 
   $scope.editTask=function(id,event){
 
-  console.log("Yes");	
+  	console.log("Yes");	
   	var ParElem=angular.element(document.getElementById(id));
 
   	var	editTabElem=angular.element(document.getElementById("edit-task-"+id));

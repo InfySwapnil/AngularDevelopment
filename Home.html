@@ -20,32 +20,32 @@
   <div class="task-List" id="task-List">
     <div ng-repeat="taskRow in AllTasks" id={{taskRow.id}} class="each-task" ng-click="editTask(taskRow.id,$event)">
 
-      <input type="checkbox" name={{taskRow.id}} value={{taskRow.id}} ng-click="$event.stopPropagation()" /><span class="task-name">{{taskRow.task}}</span>
-       
+      <input class="chckgrp" type="checkbox" name={{taskRow.id}} value={{taskRow.id}} ng-click="$event.stopPropagation();" ng-model='key'ng-change="delete(taskRow.id,key)" /><span class="task-name">{{taskRow.task}}</span>
+
       <div id="edit-task-{{taskRow.id}}" class="hide" ng-click="$event.stopPropagation()">
-      <hr>
-             <label>Set Expiry Date :</label>&nbsp;&nbsp;<em>Selected date is:{{dt | date:'fullDate' }}</em>
-            
-             <p class="input-group">
+        <hr>
+        <label>Set Expiry Date :</label>&nbsp;&nbsp;<em>{{dt | date:'fullDate' }}</em>
+
+        <p class="input-group">
           <input type="text" class="form-control overrrideText" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
           <span class="input-group-btn">
             <button type="button" class="btn btn-default overrrideBtn" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
           </span>
         </p>
         <br>
-         <label>Set Expiry Time :</label>&nbsp;&nbsp;<em>Selected time is:{{mytime | date:'shortTime' }}</em>
+        <label>Set Expiry Time :</label>&nbsp;&nbsp;<em>{{mytime | date:'shortTime' }}</em>
         <div uib-timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></div>
         <button type="button" class="btn btn-primary shake-constant shake-constant--hover shake-rotate" ng-model="singleModel" uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
-        Set Alarm
-    </button>
-
-    </div>
-</div>
-
+          Set Alarm
+        </button>
 
       </div>
     </div>
 
+
   </div>
+</div>
+
+</div>
 </div>
 
