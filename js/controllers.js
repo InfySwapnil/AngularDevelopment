@@ -176,7 +176,7 @@
   		}
   		else{
 
-  			selectedCB.pop(id);
+  			selectedCB.splice(selectedCB.indexOf(id), 1);
   			console.log(selectedCB);
   		}
   	}
