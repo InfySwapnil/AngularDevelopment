@@ -251,3 +251,8 @@ box-shadow: 6px 4px 4px -3px rgba(64, 68, 82, 0.58);
       background-color: #c9302c;
     border-color: #ac2925;
   }
+
+.select-tsk{
+	text-align: right;
+    margin-bottom: 13px;
+}

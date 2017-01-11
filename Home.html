@@ -16,6 +16,16 @@
     </div>
   </div>
 
+<div class="select-tsk">
+<em style="font-weight: bold;">{{taskCount}} task(s) selected</em>
+&nbsp;&nbsp;
+<button type="button" class="btn btn-primary" ng-disabled=!taskCount>
+          Delete Task(s)
+        </button>
+<button type="button" class="btn btn-primary" ng-disabled=!taskCount>
+          Mark Completed
+        </button>
+</div>
 
   <div class="task-List" id="task-List">
     <div ng-repeat="taskRow in AllTasks" id={{taskRow.id}} class="each-task" ng-click="editTask(taskRow.id,$event)">

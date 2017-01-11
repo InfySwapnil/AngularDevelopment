@@ -11,7 +11,7 @@
 
 
 	//This controller is for home.html
-	.controller('HomeCntrl',['$scope','addRemovetrans','$compile','$log',function($scope,addRemovetrans,$compile,$log){
+	.controller('HomeCntrl',['$scope','addRemovetrans','$compile','$log','$http',function($scope,addRemovetrans,$compile,$log,$http){
 		
 		// TimePicker functinalty starts
 		$scope.mytime = new Date();
@@ -145,7 +145,19 @@
   //Application Logic starts 
 
  
+$http({
+        method: 'PATCH', 
+    	dataType: 'json',
+    	url: "http://localhost:3000/details/1",
+    	data: '{"cateogry": "Personal"}'
+     }).then(function(response){
+  	console.log(response);
 
+  },
+  function(error){
+  	//console.log(error);
+
+  });
 
 
 
@@ -164,7 +176,7 @@
   });
 
 
-
+  $scope.taskCount=0;
   $scope.delete=(function(){
   	
   	
@@ -172,13 +184,18 @@
   	return function(id,key){
   		if(key){
   			selectedCB.push(id);
-  			console.log(selectedCB);	
-  		}
+
+   		}
   		else{
 
   			selectedCB.splice(selectedCB.indexOf(id), 1);
-  			console.log(selectedCB);
+  			if(selectedCB.length<= 0 )
+  			{
+
+
+  			}
   		}
+  		$scope.taskCount=selectedCB.length;
   	}
   })();
 

@@ -6,7 +6,8 @@
       "cateogry": "Personal",
       "CreateDate": "21/11/2016 12:33:21 PM",
       "EndDate": "21/11/2016",
-      "EndTime": "12:00:00 AM"
+      "EndTime": "12:00:00 AM",
+      "Status": 0
     },
     {
       "id": 2,
@@ -14,7 +15,8 @@
       "cateogry": "Health",
       "CreateDate": "02/12/2016 12:43:29 PM",
       "EndDate": "02/12/2016",
-      "EndTime": "12:00:00 AM"
+      "EndTime": "12:00:00 AM",
+      "Status": 0
     },
     {
       "id": 3,
@@ -22,7 +24,8 @@
       "cateogry": "financial",
       "CreateDate": "14/12/2016 12:12:59 PM",
       "EndDate": "14/12/2016",
-      "EndTime": "12:00:00 AM"
+      "EndTime": "12:00:00 AM",
+      "Status": 0
     },
     {
       "id": 4,
@@ -30,7 +33,8 @@
       "cateogry": "Personal",
       "CreateDate": "29/12/2016 12:02:44 PM",
       "EndDate": "29/12/2016",
-      "EndTime": "12:00:00 AM"
+      "EndTime": "12:00:00 AM",
+      "Status": 0
     },
     {
       "id": 5,
@@ -38,7 +42,8 @@
       "cateogry": "Financial",
       "CreateDate": "02/01/2017 12:20:47 PM",
       "EndDate": "02/01/2017",
-      "EndTime": "12:00:00 AM"
+      "EndTime": "12:00:00 AM",
+      "Status": 0
     },
     {
       "id": 6,
@@ -46,7 +51,8 @@
       "cateogry": "Financial",
       "CreateDate": "02/01/2017 12:31:57 PM",
       "EndDate": "02/01/2017",
-      "EndTime": "12:00:00 AM"
+      "EndTime": "12:00:00 AM",
+      "Status": 0
     },
     {
       "id": 7,
@@ -54,7 +60,8 @@
       "cateogry": "Personal",
       "CreateDate": "02/01/2017 03:37:56 PM",
       "EndDate": "02/01/2017",
-      "EndTime": "12:00:00 AM"
+      "EndTime": "12:00:00 AM",
+      "Status": 0
     },
     {
       "id": 8,
@@ -62,7 +69,8 @@
       "cateogry": "Financial",
       "CreateDate": "02/01/2017 04:55:07 PM",
       "EndDate": "02/01/2017",
-      "EndTime": "12:00:00 AM"
+      "EndTime": "12:00:00 AM",
+      "Status": 0
     },
     {
       "id": 9,
@@ -70,7 +78,8 @@
       "cateogry": "Personal",
       "CreateDate": "10/01/2017 12:06:34 PM",
       "EndDate": "10/01/2017",
-      "EndTime": "12:00:00 AM"
+      "EndTime": "12:00:00 AM",
+      "Status": 0
     }
   ]
 }
