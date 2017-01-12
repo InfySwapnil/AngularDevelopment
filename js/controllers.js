@@ -145,19 +145,18 @@
   //Application Logic starts 
 
  
-$http({
-        method: 'PATCH', 
-    	dataType: 'json',
-    	url: "http://localhost:3000/details/1",
-    	data: '{"cateogry": "Personal"}'
-     }).then(function(response){
-  	console.log(response);
+// $http({
+//         method: 'DELETE', 
+//     	dataType: 'json',
+//     	url: "http://localhost:3000/details/1"
+//     }).then(function(response){
+//   	console.log(response);
 
-  },
-  function(error){
-  	//console.log(error);
+//   },
+//   function(error){
+//   	//console.log(error);
 
-  });
+//   });
 
 
 
@@ -176,28 +175,43 @@ $http({
   });
 
 
+
+$scope.deleteTask=function(){
+
+
+	addRemovetrans.removeTask().then(function(response){
+		console.log(response);
+	},
+	function(error){
+
+
+	});
+
+}
+
+
   $scope.taskCount=0;
-  $scope.delete=(function(){
-  	
-  	
-  	var selectedCB=[];
-  	return function(id,key){
+  $scope.SelectedTask=[];
+
+  $scope.selectTask=function(id,key){
+  		
   		if(key){
-  			selectedCB.push(id);
+  			$scope.SelectedTask.push(id);
 
    		}
   		else{
 
-  			selectedCB.splice(selectedCB.indexOf(id), 1);
-  			if(selectedCB.length<= 0 )
+  			$scope.SelectedTask.splice($scope.SelectedTask.indexOf(id), 1);
+  			if($scope.SelectedTask.length<= 0 )
   			{
 
 
   			}
   		}
-  		$scope.taskCount=selectedCB.length;
-  	}
-  })();
+  		$scope.taskCount=$scope.SelectedTask.length;
+  		console.log($scope.SelectedTask);
+  		  	
+  };
 
   $scope.addTask=function(task,event){
   	event.preventDefault();

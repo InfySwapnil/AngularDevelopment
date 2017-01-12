@@ -19,7 +19,7 @@
 <div class="select-tsk">
 <em style="font-weight: bold;">{{taskCount}} task(s) selected</em>
 &nbsp;&nbsp;
-<button type="button" class="btn btn-primary" ng-disabled=!taskCount>
+<button type="button" class="btn btn-primary" ng-disabled=!taskCount ng-click="deleteTask()">
           Delete Task(s)
         </button>
 <button type="button" class="btn btn-primary" ng-disabled=!taskCount>
@@ -30,7 +30,7 @@
   <div class="task-List" id="task-List">
     <div ng-repeat="taskRow in AllTasks" id={{taskRow.id}} class="each-task" ng-click="editTask(taskRow.id,$event)">
 
-      <input class="chckgrp" type="checkbox" name={{taskRow.id}} value={{taskRow.id}} ng-click="$event.stopPropagation();" ng-model='key'ng-change="delete(taskRow.id,key)" /><span class="task-name">{{taskRow.task}}</span>
+      <input class="chckgrp" type="checkbox" name={{taskRow.id}} value={{taskRow.id}} ng-click="$event.stopPropagation();" ng-model='key'ng-change="selectTask(taskRow.id,key)" /><span class="task-name">{{taskRow.task}}</span>
 
       <div id="edit-task-{{taskRow.id}}" class="hide" ng-click="$event.stopPropagation()">
         <hr>

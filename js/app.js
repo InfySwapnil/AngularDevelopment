@@ -39,7 +39,12 @@
     
       removeTask:function(taskid)
       {
-        console.log("Taskid is"+taskid);
+        return $http({
+          method: 'DELETE', 
+          dataType: 'json',
+          url: "http://localhost:3000/details/"+taskid,
+        })
+
       },
 
     
