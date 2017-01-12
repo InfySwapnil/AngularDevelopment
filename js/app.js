@@ -2,6 +2,7 @@
     "mainApp.directives",
     "ui.bootstrap",
     "ngRoute"
+
     ]);
 
   mainApp.factory("addRemovetrans",function($http, $filter){

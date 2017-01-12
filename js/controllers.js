@@ -11,7 +11,7 @@
 
 
 	//This controller is for home.html
-	.controller('HomeCntrl',['$scope','addRemovetrans','$compile','$log','$http',function($scope,addRemovetrans,$compile,$log,$http){
+	.controller('HomeCntrl',['$scope','addRemovetrans','$compile','$log','$http','$q',function($scope,addRemovetrans,$compile,$log,$http,$q){
 		
 		// TimePicker functinalty starts
 		$scope.mytime = new Date();
@@ -178,15 +178,23 @@
 
 $scope.deleteTask=function(){
 
+	var promises = [];
+	$scope.SelectedTask.forEach(function(val, key){
 
-	addRemovetrans.removeTask().then(function(response){
-		console.log(response);
-	},
-	function(error){
-
-
+		promises.push(addRemovetrans.removeTask());
 	});
 
+	$q.all(promises).then(function success(data){
+      console.log($scope.data);
+    }, function failure(err){
+
+    });
+	
+
+
+
+
+	
 }
 
 
