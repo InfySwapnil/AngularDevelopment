@@ -6,7 +6,7 @@
       "cateogry": "Personal",
       "CreateDate": "21/11/2016 12:33:21 PM",
       "EndDate": "21/11/2016",
-      "EndTime": "12:00:00 AM",
+      "EndTime": "12:00 AM",
       "Status": 0
     },
     {
@@ -15,7 +15,7 @@
       "cateogry": "Health",
       "CreateDate": "02/12/2016 12:43:29 PM",
       "EndDate": "02/12/2016",
-      "EndTime": "12:00:00 AM",
+      "EndTime": "12:00 AM",
       "Status": 0
     },
     {
@@ -24,7 +24,7 @@
       "cateogry": "financial",
       "CreateDate": "14/12/2016 12:12:59 PM",
       "EndDate": "14/12/2016",
-      "EndTime": "12:00:00 AM",
+      "EndTime": "12:00 AM",
       "Status": 0
     },
     {
@@ -33,7 +33,7 @@
       "cateogry": "Personal",
       "CreateDate": "29/12/2016 12:02:44 PM",
       "EndDate": "29/12/2016",
-      "EndTime": "12:00:00 AM",
+      "EndTime": "12:00 AM",
       "Status": 0
     },
     {
@@ -42,7 +42,7 @@
       "cateogry": "Financial",
       "CreateDate": "02/01/2017 12:20:47 PM",
       "EndDate": "02/01/2017",
-      "EndTime": "12:00:00 AM",
+      "EndTime": "12:00 AM",
       "Status": 0
     },
     {
@@ -51,7 +51,7 @@
       "cateogry": "Financial",
       "CreateDate": "02/01/2017 12:31:57 PM",
       "EndDate": "02/01/2017",
-      "EndTime": "12:00:00 AM",
+      "EndTime": "12:00 AM",
       "Status": 0
     },
     {
@@ -60,7 +60,7 @@
       "cateogry": "Personal",
       "CreateDate": "02/01/2017 03:37:56 PM",
       "EndDate": "02/01/2017",
-      "EndTime": "12:00:00 AM",
+      "EndTime": "12:00 AM",
       "Status": 0
     },
     {
@@ -69,7 +69,7 @@
       "cateogry": "Financial",
       "CreateDate": "02/01/2017 04:55:07 PM",
       "EndDate": "02/01/2017",
-      "EndTime": "12:00:00 AM",
+      "EndTime": "12:00 AM",
       "Status": 0
     },
     {
@@ -78,8 +78,16 @@
       "cateogry": "Personal",
       "CreateDate": "10/01/2017 12:06:34 PM",
       "EndDate": "10/01/2017",
-      "EndTime": "12:00:00 AM",
+      "EndTime": "12:00 AM",
       "Status": 0
+    },
+    {
+      "id": 10,
+      "task": "Book Railway Ticket",
+      "cateogry": "Personal",
+      "CreateDate": "13/01/2017 03:05 PM",
+      "EndDate": "13/01/2017",
+      "EndTime": "12:00 AM"
     }
   ]
 }

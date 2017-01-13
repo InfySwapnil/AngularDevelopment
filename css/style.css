@@ -172,6 +172,7 @@ height: 38px;
     box-shadow: 6px 4px 13px -3px rgba(64, 68, 82, 0.58);
     overflow: inherit;
     height: 100%;
+
 }
 
 
@@ -188,7 +189,9 @@ box-shadow: 6px 4px 4px -3px rgba(64, 68, 82, 0.58);
 .hide{
 
 	display: none;
+
 }
+
 
 .show{
 
@@ -197,6 +200,7 @@ box-shadow: 6px 4px 4px -3px rgba(64, 68, 82, 0.58);
     padding-top: 13px;
     padding-bottom: 10px;
     position: relative;
+   
 }
 
 

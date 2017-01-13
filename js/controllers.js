@@ -11,7 +11,7 @@
 
 
 	//This controller is for home.html
-	.controller('HomeCntrl',['$scope','addRemovetrans','$compile','$log','$http','$q',function($scope,addRemovetrans,$compile,$log,$http,$q){
+	.controller('HomeCntrl',['$scope','addRemovetrans','$compile','$log','$http','$q','$mdDialog',function($scope,addRemovetrans,$compile,$log,$http,$q,$mdDialog){
 		
 		// TimePicker functinalty starts
 		$scope.mytime = new Date();
@@ -96,7 +96,7 @@
   	$scope.dt = new Date(year, month, day);
   };
 
-  $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+  $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd/MM/yyyy', 'shortDate'];
   $scope.format = $scope.formats[0];
   $scope.altInputFormats = ['M!/d!/yyyy'];
 
@@ -144,7 +144,7 @@
 
   //Application Logic starts 
 
- 
+
 // $http({
 //         method: 'DELETE', 
 //     	dataType: 'json',
@@ -159,101 +159,136 @@
 //   });
 
 
+$scope.updateTime=function(){
+
+
+}
+
+
+$scope.showConfirm=function(event){
+
+	var confirm=$mdDialog.confirm({
+		title: "Confirm Delete",
+		textContent: "Do you want to delete record(s)",
+		targetEvent: event,
+		ok:"Yes",
+		cancel: "No"
+	});
+
+	return confirm;
+}
 
 
 
 
-  
+addRemovetrans.fetchDetails().then(function(response){
+	$scope.AllTasks = response.data.reverse();
 
-  addRemovetrans.fetchDetails().then(function(response){
-  	$scope.AllTasks = response.data.reverse();
-
-  },
-  function(error){
+},
+function(error){
   	//console.log(error);
 
   });
 
 
 
-$scope.deleteTask=function(){
+$scope.deleteTask=function($event){
 
-	var promises = [];
-	$scope.SelectedTask.forEach(function(val, key){
-
-		promises.push(addRemovetrans.removeTask(val));
-	});
-
-	$q.all(promises).then(function success(data){
-      console.log($scope.data);
-    }, function failure(err){
-
-    });
+	var ConfirmConf=$scope.showConfirm($event);
 	
+	$mdDialog.show(ConfirmConf).then(function(){
+		console.log("Yes");	
+		var promises = [];
+		$scope.SelectedTask.forEach(function(val, key){
 
+			promises.push(addRemovetrans.removeTask(val));
+		});
 
+		$q.all(promises).then(function success(data){
 
+			if(parseInt(data[0].status)==200){
+				$scope.SelectedTask=[];			
+				addRemovetrans.fetchDetails().then(function(response){
+					$scope.AllTasks = response.data.reverse();
 
-	
+				},
+				function(error){
+					console.log(error);
+
+				});
+
+			}
+			else
+			{
+				console.log("Some Issue while deleting");
+
+			}
+		}, function failure(err){
+
+		});
+	}, function(){
+		console.log("No");		
+
+	})
 }
 
 
-  $scope.taskCount=0;
-  $scope.SelectedTask=[];
+$scope.taskCount=0;
+$scope.SelectedTask=[];
 
-  $scope.selectTask=function(id,key){
-  		
-  		if(key){
-  			$scope.SelectedTask.push(id);
+$scope.selectTask=function(id,key){
 
-   		}
-  		else{
+	if(key){
+		$scope.SelectedTask.push(id);
 
-  			$scope.SelectedTask.splice($scope.SelectedTask.indexOf(id), 1);
-  			if($scope.SelectedTask.length<= 0 )
-  			{
+	}
+	else{
+
+		$scope.SelectedTask.splice($scope.SelectedTask.indexOf(id), 1);
+		if($scope.SelectedTask.length<= 0 )
+		{
 
 
-  			}
-  		}
-  		$scope.taskCount=$scope.SelectedTask.length;
-  		console.log($scope.SelectedTask);
-  		  	
-  };
+		}
+	}
+	$scope.taskCount=$scope.SelectedTask.length;
+	console.log($scope.SelectedTask);
 
-  $scope.addTask=function(task,event){
-  	event.preventDefault();
-  	var type= event.target.text;
-  	addRemovetrans.addTask(task,event,type).then(function(response) {
-  		console.log(response);
-  		if(parseInt(response.status)==201 && response.statusText=="Created" )
-  		{
-  			console.log("record Created");
-  			addRemovetrans.fetchDetails().then(function(response){
-  				$scope.AllTasks = response.data.reverse();
+};
 
-  			},
-  			function(error){
+$scope.addTask=function(task,event){
+	event.preventDefault();
+	var type= event.target.text;
+	addRemovetrans.addTask(task,event,type).then(function(response) {
+		console.log(response);
+		if(parseInt(response.status)==201 && response.statusText=="Created" )
+		{
+			console.log("record Created");
+			addRemovetrans.fetchDetails().then(function(response){
+				$scope.AllTasks = response.data.reverse();
+
+			},
+			function(error){
   				//console.log(error);
   			});
-  		}
-  	}, 
-  	function(response) {
+		}
+	}, 
+	function(response) {
 
-  	});
+	});
 
-  };
+};
 
 
-  $scope.editTask=function(id,event){
+$scope.editTask=function(id,event){
 
-  	console.log("Yes");	
-  	var ParElem=angular.element(document.getElementById(id));
+	console.log("Yes");	
+	var ParElem=angular.element(document.getElementById(id));
 
-  	var	editTabElem=angular.element(document.getElementById("edit-task-"+id));
+	var	editTabElem=angular.element(document.getElementById("edit-task-"+id));
 
-  	editTabElem.addClass("show");
-  }
+	editTabElem.toggleClass("show");
+}
 }
 ])
 

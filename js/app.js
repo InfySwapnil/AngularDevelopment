@@ -1,7 +1,8 @@
   var mainApp=angular.module("mainApp",["mainApp.controllers",
     "mainApp.directives",
     "ui.bootstrap",
-    "ngRoute"
+    "ngRoute",
+    "ngMaterial"
 
     ]);
 
@@ -30,7 +31,7 @@
             url: 'http://localhost:3000/details',
             method: "POST",
             headers: {'Content-Type': 'application/json'},
-            data:  {"id":taskId, "task": task,"cateogry":type, "CreateDate":CreateDate+" "+CreateTime, "EndDate":CreateDate, "EndTime": "12:00:00 AM" }
+            data:  {"id":taskId, "task": task,"cateogry":type, "CreateDate":CreateDate+" "+CreateTime, "EndDate":CreateDate, "EndTime": "12:00 AM" }
           })
           
         
@@ -40,7 +41,7 @@
     
       removeTask:function(taskid)
       {
-        console.log(taskid);
+        console.log("Inside Service"+taskid);
         return $http({
           method: 'DELETE', 
           dataType: 'json',
