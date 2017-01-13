@@ -181,7 +181,7 @@ $scope.deleteTask=function(){
 	var promises = [];
 	$scope.SelectedTask.forEach(function(val, key){
 
-		promises.push(addRemovetrans.removeTask());
+		promises.push(addRemovetrans.removeTask(val));
 	});
 
 	$q.all(promises).then(function success(data){

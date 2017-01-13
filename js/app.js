@@ -40,6 +40,7 @@
     
       removeTask:function(taskid)
       {
+        console.log(taskid);
         return $http({
           method: 'DELETE', 
           dataType: 'json',
