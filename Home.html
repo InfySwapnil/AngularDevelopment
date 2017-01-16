@@ -47,7 +47,7 @@
         <label>Set Expiry Time :</label>&nbsp;&nbsp;<em>{{mytime | date:'shortTime' }}</em>
         <div uib-timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></div>
         <button type="button" class="btn btn-primary shake-constant shake-constant--hover shake-rotate"  uib-btn-checkbox btn-checkbox-true="1" 
-        ng-click="updateTime()"
+        ng-click="updateAlarm(taskRow.id)"
         btn-checkbox-false="0">
           Set Alarm
         </button>

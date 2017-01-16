@@ -50,7 +50,22 @@
 
       },
 
+
+      updateTask:function(taskid, newDate, newTime)
+      {
+        
+        console.log("Inside Service"+taskid);
+        return $http({
+          method: 'PATCH', 
+          dataType: 'json',
+          data: '',
+          url: "http://localhost:3000/details/"+taskid,
+        })
+
+      },
     
+
+
 
       fetchDetails: function()
       {

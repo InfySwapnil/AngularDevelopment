@@ -145,21 +145,23 @@
   //Application Logic starts 
 
 
-// $http({
-//         method: 'DELETE', 
-//     	dataType: 'json',
-//     	url: "http://localhost:3000/details/1"
-//     }).then(function(response){
-//   	console.log(response);
+ $http({
+      method: 'PATCH', 
+     	dataType: 'json',
+     	url: "http://localhost:3000/details/1",
+		data: "{EndDate: '21/11/2017'}"
+     }).then(function(response){
+   	console.log(response);
 
-//   },
-//   function(error){
-//   	//console.log(error);
+   },
+   function(error){
+   	console.log(error);
 
-//   });
+   });
 
 
-$scope.updateTime=function(){
+$scope.updateAlarm=function(id){
+
 
 
 }
