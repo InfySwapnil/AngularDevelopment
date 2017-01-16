@@ -11,7 +11,7 @@
 
 
 	//This controller is for home.html
-	.controller('HomeCntrl',['$scope','addRemovetrans','$compile','$log','$http','$q','$mdDialog',function($scope,addRemovetrans,$compile,$log,$http,$q,$mdDialog){
+	.controller('HomeCntrl',['$scope','addRemovetrans','$compile','$log','$http','$q','$mdDialog','$filter',function($scope,addRemovetrans,$compile,$log,$http,$q,$mdDialog,$filter){
 		
 		// TimePicker functinalty starts
 		$scope.mytime = new Date();
@@ -145,24 +145,26 @@
   //Application Logic starts 
 
 
- $http({
-      method: 'PATCH', 
-     	dataType: 'json',
-     	url: "http://localhost:3000/details/1",
-		data: "{EndDate: '21/11/2017'}"
-     }).then(function(response){
-   	console.log(response);
 
-   },
-   function(error){
-   	console.log(error);
+$scope.updateAlarm=function(id,newDate,newTime){
 
-   });
+	newDate=$filter('date')(newDate,'dd/MM/yyyy');
+	newTime=$filter('date')(newTime, 'shortTime');
 
+	addRemovetrans.updateTask(id,newDate, newTime).then(function(response){
+		if(parseInt(response.status)==200){
+			addRemovetrans.fetchDetails().then(function(response){
+				$scope.AllTasks = response.data.reverse();
+			},
+			function(error){
+  				//console.log(error);
+ 			 });
+		}
+	},
+	function(error){
+		console.log(error);
 
-$scope.updateAlarm=function(id){
-
-
+	});
 
 }
 
@@ -186,11 +188,18 @@ $scope.showConfirm=function(event){
 addRemovetrans.fetchDetails().then(function(response){
 	$scope.AllTasks = response.data.reverse();
 
+	console.log($scope.AllTasks);
+	// var mdfDate=($scope.AllTasks[0].EndDate).split("/").reverse().join("/"),
+	// fullDateTime=mdfDate+" "+$scope.AllTasks[0].EndTime;
+	// fullDateTime=Date.parse(fullDateTime);
+	// //var currDate= new Date();
+	// console.log(addRemovetrans.dhm(fullDateTime-new Date()));
 },
 function(error){
   	//console.log(error);
 
   });
+
 
 
 

@@ -32,7 +32,7 @@
 
       <input class="chckgrp" type="checkbox" name={{taskRow.id}} value={{taskRow.id}} ng-click="$event.stopPropagation();" ng-model='key'ng-change="selectTask(taskRow.id,key)" /><span class="task-name">{{taskRow.task}}</span>
 
-      <em><span style="margin-left: 143px;">{{taskRow.EndDate}}&nbsp;{{taskRow.EndTime}}</span></em>
+      <em><span style="margin-left: 143px;">{{taskRow.EndDate}}</span><span>{{taskRow.EndTime}}</span></em>
       <div id="edit-task-{{taskRow.id}}" class="hide" ng-click="$event.stopPropagation()">
         <hr>
         <label>Set Expiry Date :</label>&nbsp;&nbsp;<em>{{dt | date:'dd/MM/yyyy' }}</em>
@@ -46,8 +46,8 @@
         <br>
         <label>Set Expiry Time :</label>&nbsp;&nbsp;<em>{{mytime | date:'shortTime' }}</em>
         <div uib-timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></div>
-        <button type="button" class="btn btn-primary shake-constant shake-constant--hover shake-rotate"  uib-btn-checkbox btn-checkbox-true="1" 
-        ng-click="updateAlarm(taskRow.id)"
+        <button type="button" class="btn btn-primary shake-constant shake-constant--hover shake-rotate"  
+        ng-click="updateAlarm(taskRow.id,dt,mytime)"
         btn-checkbox-false="0">
           Set Alarm
         </button>

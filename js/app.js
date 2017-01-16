@@ -17,28 +17,35 @@
         var parEl = angular.element( document.querySelector('#task-List'));
         var taskId=parseInt(parEl.find("input").attr("value"));
         taskId=taskId+1;        
-        
-        // var  htmlElem='<div ng-repeat="taskRow in AllTasks" id="'+taskId+'" class="each-task" ng-click="editTask('+taskId+',$event)" >';
-        // console.log($compile(htmlElem)($scope));
-        // htmlElem=htmlElem+'<input type="checkbox" name="'+taskId +'" value="'+taskId +'" ng-click="$event.stopPropagation()" />';
-        // htmlElem=htmlElem+'<span class="task-name">'+task+'</span></div>';
-        // htmlElem=htmlElem+'<div id="edit-task-'+taskId+'" " class="hide" ng-click="$event.stopPropagation()">';
-        // //console.log($compile(htmlElem)($scope));
-        // parEl.prepend(htmlElem);
-
-        
+              
         return $http({
             url: 'http://localhost:3000/details',
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             data:  {"id":taskId, "task": task,"cateogry":type, "CreateDate":CreateDate+" "+CreateTime, "EndDate":CreateDate, "EndTime": "12:00 AM" }
           })
-          
+       },
+
+       dhm: function(t){
+        var cd = 24 * 60 * 60 * 1000,
+        ch = 60 * 60 * 1000,
+        d = Math.floor(t / cd),
+        h = Math.floor( (t - d * cd) / ch),
+        m = Math.round( (t - d * cd - h * ch) / 60000);
         
-   
+        if( m === 60 ){
+          h++;
+          m = 0;
+        }
+        if( h === 24 ){
+          d++;
+          h = 0;
+        }
+        return d+"day"+h+"hours"+m ;
       },
 
-    
+
+
       removeTask:function(taskid)
       {
         console.log("Inside Service"+taskid);
@@ -53,13 +60,13 @@
 
       updateTask:function(taskid, newDate, newTime)
       {
-        
+
         console.log("Inside Service"+taskid);
         return $http({
           method: 'PATCH', 
           dataType: 'json',
-          data: '',
           url: "http://localhost:3000/details/"+taskid,
+          data: '{"EndDate": "'+newDate+'" ,"EndTime": "'+newTime+'"}'
         })
 
       },
