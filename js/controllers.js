@@ -11,7 +11,7 @@
 
 
 	//This controller is for home.html
-	.controller('HomeCntrl',['$scope','addRemovetrans','$compile','$log','$http','$q','$mdDialog','$filter',function($scope,addRemovetrans,$compile,$log,$http,$q,$mdDialog,$filter){
+	.controller('HomeCntrl',['$scope','addRemovetrans','$compile','$log','$http','$q','$mdDialog','$filter','$interval',function($scope,addRemovetrans,$compile,$log,$http,$q,$mdDialog,$filter,$interval){
 		
 		// TimePicker functinalty starts
 		$scope.mytime = new Date();
@@ -188,12 +188,32 @@ $scope.showConfirm=function(event){
 addRemovetrans.fetchDetails().then(function(response){
 	$scope.AllTasks = response.data.reverse();
 
-	console.log($scope.AllTasks);
+	
 	// var mdfDate=($scope.AllTasks[0].EndDate).split("/").reverse().join("/"),
 	// fullDateTime=mdfDate+" "+$scope.AllTasks[0].EndTime;
 	// fullDateTime=Date.parse(fullDateTime);
 	// //var currDate= new Date();
 	// console.log(addRemovetrans.dhm(fullDateTime-new Date()));
+
+	var mdfDate;
+	$scope.AllTasks.forEach(function(row){
+
+	 mdfDate=(row.EndDate).split("/").reverse().join("/"),
+	 fullDateTime=mdfDate+" "+row.EndTime;
+	 fullDateTime=Date.parse(fullDateTime);
+
+	 (function(DateTime){
+
+	 	$interval(function(){
+
+			console.log(addRemovetrans.dhm(DateTime-new Date()));	 		
+
+	 	},60000);
+
+	 })(fullDateTime);
+
+	});
+
 },
 function(error){
   	//console.log(error);

@@ -14,8 +14,8 @@
       "task": "Go to Gym",
       "cateogry": "Health",
       "CreateDate": "02/12/2016 12:43:29 PM",
-      "EndDate": "02/12/2016",
-      "EndTime": "12:00 AM",
+      "EndDate": "15/03/2017",
+      "EndTime": "2:45 PM",
       "Status": 0
     },
     {
@@ -23,8 +23,8 @@
       "task": "transfer 200 to yogi",
       "cateogry": "financial",
       "CreateDate": "14/12/2016 12:12:59 PM",
-      "EndDate": "14/12/2016",
-      "EndTime": "12:00 AM",
+      "EndDate": "02/05/2017",
+      "EndTime": "2:45 PM",
       "Status": 0
     },
     {
@@ -32,8 +32,8 @@
       "task": "buy bike",
       "cateogry": "Personal",
       "CreateDate": "29/12/2016 12:02:44 PM",
-      "EndDate": "29/12/2016",
-      "EndTime": "12:00 AM",
+      "EndDate": "29/12/2017",
+      "EndTime": "2:45 PM",
       "Status": 0
     },
     {
@@ -41,8 +41,8 @@
       "task": "Call Rameshwar",
       "cateogry": "Financial",
       "CreateDate": "02/01/2017 12:20:47 PM",
-      "EndDate": "02/01/2017",
-      "EndTime": "12:00 AM",
+      "EndDate": "17/01/2017",
+      "EndTime": "11:45 PM",
       "Status": 0
     },
     {
