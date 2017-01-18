@@ -146,6 +146,42 @@
 
 
 
+$interval(function(){
+
+
+
+
+
+var mdfDate;
+	$scope.AllTasks.forEach(function(row){
+
+	 mdfDate=(row.EndDate).split("/").reverse().join("/"),
+	 fullDateTime=mdfDate+" "+row.EndTime;
+	 fullDateTime=Date.parse(fullDateTime);
+
+	 (function(DateTime){
+
+	 	$interval(function(){
+
+			console.log(addRemovetrans.dhm(DateTime-new Date()));	 		
+
+	 	},60000);
+
+	 })(fullDateTime);
+
+	});
+
+},60000)
+
+
+
+
+
+
+
+
+
+
 $scope.updateAlarm=function(id,newDate,newTime){
 
 	newDate=$filter('date')(newDate,'dd/MM/yyyy');
@@ -187,39 +223,11 @@ $scope.showConfirm=function(event){
 
 addRemovetrans.fetchDetails().then(function(response){
 	$scope.AllTasks = response.data.reverse();
-
-	
-	// var mdfDate=($scope.AllTasks[0].EndDate).split("/").reverse().join("/"),
-	// fullDateTime=mdfDate+" "+$scope.AllTasks[0].EndTime;
-	// fullDateTime=Date.parse(fullDateTime);
-	// //var currDate= new Date();
-	// console.log(addRemovetrans.dhm(fullDateTime-new Date()));
-
-	var mdfDate;
-	$scope.AllTasks.forEach(function(row){
-
-	 mdfDate=(row.EndDate).split("/").reverse().join("/"),
-	 fullDateTime=mdfDate+" "+row.EndTime;
-	 fullDateTime=Date.parse(fullDateTime);
-
-	 (function(DateTime){
-
-	 	$interval(function(){
-
-			console.log(addRemovetrans.dhm(DateTime-new Date()));	 		
-
-	 	},60000);
-
-	 })(fullDateTime);
-
-	});
-
 },
 function(error){
   	//console.log(error);
 
   });
-
 
 
 
