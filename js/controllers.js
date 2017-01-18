@@ -142,41 +142,27 @@
   }
 
 
+
+
   //Application Logic starts 
 
+  $interval(function(){
 
+  	addRemovetrans.fetchDetails().then(function(response){
+  		var AllTasksList = [], mdfDate, fullDateTime;
+  		AllTasksList=response.data.reverse();
+  		AllTasksList.forEach(function(row){
 
-$interval(function(){
-
-
-
-
-
-var mdfDate;
-	$scope.AllTasks.forEach(function(row){
-
-	 mdfDate=(row.EndDate).split("/").reverse().join("/"),
-	 fullDateTime=mdfDate+" "+row.EndTime;
-	 fullDateTime=Date.parse(fullDateTime);
-
-	 (function(DateTime){
-
-	 	$interval(function(){
-
-			console.log(addRemovetrans.dhm(DateTime-new Date()));	 		
-
-	 	},60000);
-
-	 })(fullDateTime);
-
-	});
-
-},60000)
-
-
-
-
-
+  			mdfDate=(row.EndDate).split("/").reverse().join("/"),
+  			fullDateTime=mdfDate+" "+row.EndTime;
+  			fullDateTime=Date.parse(fullDateTime);
+  			console.log(addRemovetrans.dhm(fullDateTime-new Date()));	 		
+  		});
+  	},
+  	function(error){
+		console.log(error);
+  });
+  },60000)
 
 
 
@@ -187,7 +173,7 @@ $scope.updateAlarm=function(id,newDate,newTime){
 	newDate=$filter('date')(newDate,'dd/MM/yyyy');
 	newTime=$filter('date')(newTime, 'shortTime');
 
-	addRemovetrans.updateTask(id,newDate, newTime).then(function(response){
+	addRemovetrans.updateTask(id,newDate, newTime, 0).then(function(response){
 		if(parseInt(response.status)==200){
 			addRemovetrans.fetchDetails().then(function(response){
 				$scope.AllTasks = response.data.reverse();
@@ -229,14 +215,29 @@ function(error){
 
   });
 
+$scope.setTaskComplete=function($event){
 
+	var ConfirmConf=$scope.showConfirm($event);
+	$mdDialog.show(ConfirmConf).then(function(){
+		var promises=[];
+
+		$scope.SelectedTask.forEach(function(val, key){
+			promises.push(addRemovetrans.updateTask(val,0,0,1));
+		});
+
+		$q.all(promises).then(function(response){
+			console.log("success");	
+
+		})
+	})
+
+}
 
 $scope.deleteTask=function($event){
 
 	var ConfirmConf=$scope.showConfirm($event);
 	
 	$mdDialog.show(ConfirmConf).then(function(){
-		console.log("Yes");	
 		var promises = [];
 		$scope.SelectedTask.forEach(function(val, key){
 
@@ -255,7 +256,6 @@ $scope.deleteTask=function($event){
 					console.log(error);
 
 				});
-
 			}
 			else
 			{
@@ -266,8 +266,7 @@ $scope.deleteTask=function($event){
 
 		});
 	}, function(){
-		console.log("No");		
-
+				
 	})
 }
 

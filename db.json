@@ -5,8 +5,8 @@
       "task": "Bring vegetables",
       "cateogry": "HEALTH",
       "CreateDate": "21/11/2016 12:33:21 PM",
-      "EndDate": "22/08/2017",
-      "EndTime": "12:00 PM",
+      "EndDate": "27/01/2017",
+      "EndTime": "12:33 PM",
       "Status": 0
     },
     {
@@ -52,7 +52,7 @@
       "CreateDate": "02/01/2017 12:31:57 PM",
       "EndDate": "02/01/2017",
       "EndTime": "12:00 AM",
-      "Status": 0
+      "Status": 1
     },
     {
       "id": 7,
@@ -70,7 +70,7 @@
       "CreateDate": "02/01/2017 04:55:07 PM",
       "EndDate": "02/01/2017",
       "EndTime": "12:00 AM",
-      "Status": 0
+      "Status": 1
     },
     {
       "id": 9,
@@ -86,8 +86,9 @@
       "task": "Book Railway Ticket",
       "cateogry": "Personal",
       "CreateDate": "13/01/2017 03:05 PM",
-      "EndDate": "17/01/2017",
-      "EndTime": "2:50 PM"
+      "EndDate": "20/01/2017",
+      "EndTime": "3:33 PM",
+      "Status": 1
     }
   ]
 }

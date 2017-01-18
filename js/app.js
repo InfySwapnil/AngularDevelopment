@@ -58,15 +58,19 @@
       },
 
 
-      updateTask:function(taskid, newDate, newTime)
+      updateTask:function(taskid, newDate, newTime, status)
       {
+        var PostData;
+        if (status)
+          PostData='{"Status":'+status+'}';
+        else
+          PostData='{"EndDate": "'+newDate+'" ,"EndTime": "'+newTime+'"}'; 
 
-        console.log("Inside Service"+taskid);
-        return $http({
+          return $http({
           method: 'PATCH', 
           dataType: 'json',
           url: "http://localhost:3000/details/"+taskid,
-          data: '{"EndDate": "'+newDate+'" ,"EndTime": "'+newTime+'"}'
+          data: PostData
         })
 
       },
