@@ -151,13 +151,16 @@
   	addRemovetrans.fetchDetails().then(function(response){
   		var AllTasksList = [], mdfDate, fullDateTime;
   		AllTasksList=response.data.reverse();
+  		console.log("starts");
   		AllTasksList.forEach(function(row){
 
   			mdfDate=(row.EndDate).split("/").reverse().join("/"),
   			fullDateTime=mdfDate+" "+row.EndTime;
   			fullDateTime=Date.parse(fullDateTime);
+
   			console.log(addRemovetrans.dhm(fullDateTime-new Date()));	 		
   		});
+  		console.log("Ends");
   	},
   	function(error){
 		console.log(error);
@@ -165,6 +168,12 @@
   },60000)
 
 
+$scope.SortTask=function(taskRow){
+var date = Date.parse(taskRow.EndDate);
+    console.log(date);
+    return date;
+
+}
 
 
 

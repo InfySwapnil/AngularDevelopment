@@ -11,12 +11,38 @@
 				<li role="menuitem"><a ng-click="addTask(task,$event)" href="#">Personal</a></li>
 				<li role="menuitem"><a ng-click="addTask(task,$event)" href="#">Financial</a></li>
 				<li role="menuitem"><a ng-click="addTask(task,$event)" href="#">Health</a></li>
-
 			</ul>
 		</div>
 	</div>
 
+
 <div class="select-tsk">
+<span class="LeftAligned">
+	<div class="btn-group" uib-dropdown dropdown-append-to-body>
+      <button id="btn-append-to-body" type="button" class="btn btn-primary" uib-dropdown-toggle ng-model="CategoryFilter">
+        Filter By... <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+       <li role="menuitem" ng-click='$event.preventDefault();CategoryFilter=""'><a href="#">None</a></li>
+        <li role="menuitem" ng-click='$event.preventDefault();CategoryFilter="Personal"'><a href="#">Personal</a></li>
+        <li role="menuitem" ng-click='$event.preventDefault();CategoryFilter="Financial"'><a href="#">Financial</a></li>
+        <li role="menuitem" ng-click='$event.preventDefault();CategoryFilter="Health"'><a href="#">Health</a></li>
+       </ul>
+    </div>
+
+
+   	<div class="btn-group" uib-dropdown dropdown-append-to-body>
+      <button id="btn-append-to-body" type="button" class="btn btn-primary" uib-dropdown-toggle >
+        Sort By... <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+       <li role="menuitem" ng-click='$event.preventDefault();SortTask="Status" '><a href="#">Status</a></li>
+        <li role="menuitem" ng-click='$event.preventDefault();SortTask="task" '><a href="#">Task Name</a></li>
+        <li role="menuitem" ng-click='$event.preventDefault(); '><a href="#">End Date</a></li>
+      </ul>
+    </div>
+
+</span>
 <em style="font-weight: bold;">{{taskCount}} task(s) selected</em>
 &nbsp;&nbsp;
 <button type="button" class="btn btn-primary" ng-disabled=!taskCount ng-click="deleteTask($event)">
@@ -27,12 +53,12 @@
 				</button>
 </div>
 
-	<div class="task-List" id="task-List">
-		<div ng-repeat="taskRow in AllTasks" id={{taskRow.id}} class="each-task" ng-click="editTask(taskRow.id,$event)">
+	<div class="task-List" id="task-List"> 
+		<div ng-repeat='taskRow in AllTasks| filter: CategoryFilter |orderBy: SortTask ' id={{taskRow.id}} class="each-task" ng-click="editTask(taskRow.id,$event)">
 
 			<input class="chckgrp" type="checkbox" name={{taskRow.id}} value={{taskRow.id}} ng-click="$event.stopPropagation();" ng-model='key'ng-change="selectTask(taskRow.id,key)" /><span class="task-name">{{taskRow.task}}</span>
 
-			<em><span style="margin-left: 143px;">{{taskRow.EndDate}}</span><span>{{taskRow.EndTime}}</span></em>
+			<em><span style="margin-left: 143px;">{{taskRow.EndDate}}</span></em>
 			<div id="edit-task-{{taskRow.id}}" class="hide" ng-click="$event.stopPropagation()">
 				<hr>
 				<label>Set Expiry Date :</label>&nbsp;&nbsp;<em>{{dt | date:'dd/MM/yyyy' }}</em>

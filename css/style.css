@@ -260,3 +260,8 @@ box-shadow: 6px 4px 4px -3px rgba(64, 68, 82, 0.58);
 	text-align: right;
     margin-bottom: 13px;
 }
+
+
+.LeftAligned{
+	float: left;
+}
