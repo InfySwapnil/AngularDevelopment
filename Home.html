@@ -36,9 +36,10 @@
         Sort By... <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
-       <li role="menuitem" ng-click='$event.preventDefault();SortTask="Status" '><a href="#">Status</a></li>
-        <li role="menuitem" ng-click='$event.preventDefault();SortTask="task" '><a href="#">Task Name</a></li>
-        <li role="menuitem" ng-click='$event.preventDefault(); '><a href="#">End Date</a></li>
+       <li role="menuitem" ng-click='$event.preventDefault();$event.stopPropagation();SortTask="Status" '><a href="#">Status</a></li>
+        <li role="menuitem" ng-click='$event.preventDefault();$event.stopPropagation();SortTask="task" '><a href="#">Task Name</a></li>
+        <li role="menuitem" ng-click='$event.preventDefault();$event.stopPropagation();SortTask="" '><a href="#">End Date</a></li>
+         <li role="menuitem" ng-click='$event.preventDefault();$event.stopPropagation();SortTask="-id" '><a href="#">latest Added</a></li>
       </ul>
     </div>
 
@@ -54,11 +55,12 @@
 </div>
 
 	<div class="task-List" id="task-List"> 
-		<div ng-repeat='taskRow in AllTasks| filter: CategoryFilter |orderBy: SortTask ' id={{taskRow.id}} class="each-task" ng-click="editTask(taskRow.id,$event)">
+		<div ng-repeat='taskRow in AllTasks| filter: CategoryFilter |orderBy: sortBy |orderBy: SortTask' id={{taskRow.id}} class="each-task" ng-click="editTask(taskRow.id,$event)">
 
 			<input class="chckgrp" type="checkbox" name={{taskRow.id}} value={{taskRow.id}} ng-click="$event.stopPropagation();" ng-model='key'ng-change="selectTask(taskRow.id,key)" /><span class="task-name">{{taskRow.task}}</span>
 
-			<em><span style="margin-left: 143px;">{{taskRow.EndDate}}</span></em>
+			<!-- <em><span style="margin-left: 143px;">{{taskRow.EndDate}}</span></em> -->
+			<span id="timeleft" style="float: right;"></span>
 			<div id="edit-task-{{taskRow.id}}" class="hide" ng-click="$event.stopPropagation()">
 				<hr>
 				<label>Set Expiry Date :</label>&nbsp;&nbsp;<em>{{dt | date:'dd/MM/yyyy' }}</em>

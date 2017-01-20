@@ -41,7 +41,18 @@
           d++;
           h = 0;
         }
-        return d+"day"+h+"hours"+m ;
+        
+        console.log(d+" "+h+" "+m);
+        if(d<0 || h<0 || m<0)
+          return "<em> Time Finished</em>" ;
+        else if(d==0 && h==0 && m==0)
+          return "<em> Time Finished</em>" ;
+        else if(d==0 && h==0)
+          return "<em>"+m+"Minutes left"+"</em>" ;
+        if(d==0)
+          return "<em>"+h+"Hours "+m+"Minutes left"+"</em>" ;
+        else
+          return "<em>"+d+"Day "+h+"Hours "+m+"Minutes left"+"</em>" ;
       },
 
 

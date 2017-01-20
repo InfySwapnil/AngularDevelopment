@@ -41,8 +41,8 @@
       "task": "Call Rameshwar",
       "cateogry": "Financial",
       "CreateDate": "02/01/2017 12:20:47 PM",
-      "EndDate": "17/01/2017",
-      "EndTime": "11:45 PM",
+      "EndDate": "31/01/2017",
+      "EndTime": "2:59 PM",
       "Status": 0
     },
     {
@@ -50,8 +50,8 @@
       "task": "Send Reminder",
       "cateogry": "Financial",
       "CreateDate": "02/01/2017 12:31:57 PM",
-      "EndDate": "02/01/2017",
-      "EndTime": "12:00 AM",
+      "EndDate": "20/01/2017",
+      "EndTime": "3:53 PM",
       "Status": 1
     },
     {
@@ -68,8 +68,8 @@
       "task": "Add Payee for yogesh",
       "cateogry": "financial",
       "CreateDate": "02/01/2017 04:55:07 PM",
-      "EndDate": "02/01/2017",
-      "EndTime": "12:00 AM",
+      "EndDate": "27/01/2017",
+      "EndTime": "2:59 PM",
       "Status": 1
     },
     {
@@ -77,8 +77,8 @@
       "task": "Remind Prajakta of running",
       "cateogry": "Personal",
       "CreateDate": "10/01/2017 12:06:34 PM",
-      "EndDate": "20/01/2017",
-      "EndTime": "3:00 PM",
+      "EndDate": "25/01/2017",
+      "EndTime": "3:39 PM",
       "Status": 0
     },
     {

@@ -151,29 +151,35 @@
   	addRemovetrans.fetchDetails().then(function(response){
   		var AllTasksList = [], mdfDate, fullDateTime;
   		AllTasksList=response.data.reverse();
-  		console.log("starts");
+  		//console.log("starts");
   		AllTasksList.forEach(function(row){
 
   			mdfDate=(row.EndDate).split("/").reverse().join("/"),
   			fullDateTime=mdfDate+" "+row.EndTime;
   			fullDateTime=Date.parse(fullDateTime);
 
-  			console.log(addRemovetrans.dhm(fullDateTime-new Date()));	 		
+			var dateDiff=addRemovetrans.dhm(fullDateTime-new Date());	
+  			var x = angular.element(document.getElementById(row.id));
+  			//var content= document.createTextNode(dateDiff);	
+  			x.children("span")[2].innerHTML=dateDiff;
+  			//x.children("span")[3].appendChild(content);
   		});
-  		console.log("Ends");
+  		//console.log("Ends");
   	},
   	function(error){
 		console.log(error);
   });
-  },60000)
+  },10000)
 
 
-$scope.SortTask=function(taskRow){
-var date = Date.parse(taskRow.EndDate);
-    console.log(date);
-    return date;
-
+$scope.sortBy=function(taskRow){
+	var temp=taskRow.EndDate.split("/"),
+	jsFormattedDate=temp[1]+"/"+temp[0]+"/"+temp[2];
+	jsFormattedDate=jsFormattedDate +" "+taskRow.EndTime;
+	var date = Date.parse(jsFormattedDate);
+	return date;
 }
+
 
 
 
