@@ -26,7 +26,7 @@
           })
        },
 
-       dhm: function(t){
+       dhm: function(t, id){
         var cd = 24 * 60 * 60 * 1000,
         ch = 60 * 60 * 1000,
         d = Math.floor(t / cd),
@@ -41,15 +41,12 @@
           d++;
           h = 0;
         }
-        
-        console.log(d+" "+h+" "+m);
-        if(d<0 || h<0 || m<0)
-          return "<em> Time Finished</em>" ;
-        else if(d==0 && h==0 && m==0)
-          return "<em> Time Finished</em>" ;
-        else if(d==0 && h==0)
+        var flag=0;
+        if((d==0 && h==0 && m==0) || (d<0 || h<0 || m<0)) {
+           return "TIMEOVER" ;
+        }else if(d==0 && h==0)
           return "<em>"+m+"Minutes left"+"</em>" ;
-        if(d==0)
+        else if(d==0)
           return "<em>"+h+"Hours "+m+"Minutes left"+"</em>" ;
         else
           return "<em>"+d+"Day "+h+"Hours "+m+"Minutes left"+"</em>" ;
@@ -73,7 +70,7 @@
       {
         var PostData;
         if (status)
-          PostData='{"Status":'+status+'}';
+          PostData='{"Status":'+status+', "EndDate":"0", "EndTime": "0"}';
         else
           PostData='{"EndDate": "'+newDate+'" ,"EndTime": "'+newTime+'"}'; 
 
@@ -96,9 +93,6 @@
           url: "http://localhost:3000/details"  
         })
       }
-
-
-
     }
   });
 

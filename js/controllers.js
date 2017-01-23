@@ -144,32 +144,59 @@
 
 
 
+
+
   //Application Logic starts 
+
+  $scope.taskCount=0;
+$scope.SelectedTask=[];
+
 
   $interval(function(){
 
   	addRemovetrans.fetchDetails().then(function(response){
   		var AllTasksList = [], mdfDate, fullDateTime;
   		AllTasksList=response.data.reverse();
-  		//console.log("starts");
   		AllTasksList.forEach(function(row){
 
-  			mdfDate=(row.EndDate).split("/").reverse().join("/"),
-  			fullDateTime=mdfDate+" "+row.EndTime;
-  			fullDateTime=Date.parse(fullDateTime);
-
-			var dateDiff=addRemovetrans.dhm(fullDateTime-new Date());	
   			var x = angular.element(document.getElementById(row.id));
-  			//var content= document.createTextNode(dateDiff);	
-  			x.children("span")[2].innerHTML=dateDiff;
-  			//x.children("span")[3].appendChild(content);
+  			if(row.Status==1){
+  				x.children("span")[2].innerHTML="<em>Task completed</em>";
+  			}
+  			else if(row.Status==2){
+  				console.log("failed");
+  				x.children("span")[2].innerHTML="<em>Task Failed</em>";
+  			}else{
+  				mdfDate=(row.EndDate).split("/").reverse().join("/"),
+  				fullDateTime=mdfDate+" "+row.EndTime;
+  				fullDateTime=Date.parse(fullDateTime);
+				var dateDiff=addRemovetrans.dhm(fullDateTime-new Date());
+				if(dateDiff=="TIMEOVER"){
+					console.log("inside if");
+					addRemovetrans.updateTask(row.id,0,0,2).then(function(response){
+						console.log("inside Ajax");
+						if(parseInt(response.status)==200){
+							console.log("ajax successful")
+							addRemovetrans.fetchDetails().then(function(response){
+							$scope.AllTasks = response.data.reverse();
+							},function(error){
+  								//console.log(error);
+  							});	
+						}
+					},function(error){
+  						//console.log(error);
+  					});	
+				}
+				else
+  	  			x.children("span")[2].innerHTML=dateDiff;
+  			}
   		});
   		//console.log("Ends");
   	},
   	function(error){
 		console.log(error);
   });
-  },10000)
+  },60000)
 
 
 $scope.sortBy=function(taskRow){
@@ -241,7 +268,16 @@ $scope.setTaskComplete=function($event){
 		});
 
 		$q.all(promises).then(function(response){
-			console.log("success");	
+			addRemovetrans.fetchDetails().then(function(response){
+				$scope.taskCount=0;
+				$scope.SelectedTask=[];
+				$scope.AllTasks = response.data.reverse();
+			},
+			function(error){
+  				//console.log(error);
+
+  			});
+
 
 		})
 	})
@@ -264,6 +300,8 @@ $scope.deleteTask=function($event){
 			if(parseInt(data[0].status)==200){
 				$scope.SelectedTask=[];			
 				addRemovetrans.fetchDetails().then(function(response){
+					$scope.taskCount=0;
+					$scope.SelectedTask=[];
 					$scope.AllTasks = response.data.reverse();
 
 				},
@@ -286,23 +324,16 @@ $scope.deleteTask=function($event){
 }
 
 
-$scope.taskCount=0;
-$scope.SelectedTask=[];
 
 $scope.selectTask=function(id,key){
 
 	if(key){
 		$scope.SelectedTask.push(id);
-
 	}
 	else{
-
 		$scope.SelectedTask.splice($scope.SelectedTask.indexOf(id), 1);
 		if($scope.SelectedTask.length<= 0 )
-		{
-
-
-		}
+		{	}
 	}
 	$scope.taskCount=$scope.SelectedTask.length;
 	console.log($scope.SelectedTask);

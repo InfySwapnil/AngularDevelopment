@@ -55,7 +55,7 @@
 </div>
 
 	<div class="task-List" id="task-List"> 
-		<div ng-repeat='taskRow in AllTasks| filter: CategoryFilter |orderBy: sortBy |orderBy: SortTask' id={{taskRow.id}} class="each-task" ng-click="editTask(taskRow.id,$event)">
+		<div ng-repeat='taskRow in AllTasks| filter: CategoryFilter |orderBy: sortBy |orderBy: SortTask' id={{taskRow.id}} class="each-task" ng-class="taskRow.Status == 2 ? 'task-failed' : (taskRow.Status == 0 ? 'task-pending' : 'task-completed')" ng-click="editTask(taskRow.id,$event)">
 
 			<input class="chckgrp" type="checkbox" name={{taskRow.id}} value={{taskRow.id}} ng-click="$event.stopPropagation();" ng-model='key'ng-change="selectTask(taskRow.id,key)" /><span class="task-name">{{taskRow.task}}</span>
 

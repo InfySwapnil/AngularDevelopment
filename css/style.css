@@ -265,3 +265,16 @@ box-shadow: 6px 4px 4px -3px rgba(64, 68, 82, 0.58);
 .LeftAligned{
 	float: left;
 }
+
+.task-completed{
+	background-color: yellowgreen;
+}
+
+
+.task-pending{
+	background-color: moccasin;	
+}
+
+.task-failed{
+	background-color: indianred;	
+}
